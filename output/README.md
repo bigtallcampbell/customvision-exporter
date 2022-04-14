@@ -1,0 +1,1 @@
+Placeholder file so git will take the directory.  All images and tags will download to this directory.

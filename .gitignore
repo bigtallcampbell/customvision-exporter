@@ -1,0 +1,3 @@
+/output/*
+#except the markdown files.  Keep those
+!/output/*.md
