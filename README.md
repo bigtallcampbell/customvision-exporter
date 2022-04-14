@@ -11,12 +11,12 @@ To run (via bash):
 
 Files and files will write out to a new directory at /output/YYYY-MM-DD_HH-MM with a JPG and associated JSON for the images
 
-## Get Project ID
+## Get Project ID, Key, and Region
 You can get your project ID, training key, and region by through Custom Visions' web gui.
 1. Browse and Sign into [Custom Vision](https://www.customvision.ai)
 1. Open your project
 1. Go to the project's settings and should see a screen like this:
-
+    ![Project Settings](project_settings.jpg)
 
 ## Run without devcontainer (linux)
 1. Install jq package
