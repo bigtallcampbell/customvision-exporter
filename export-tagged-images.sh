@@ -97,26 +97,6 @@ function getImagesAndTags(){
 
 }
 
-function getImages(){
-    #IMG=$(cat ./output/tags/tagged_images_0.json)
-
-    FULL_URL="https://westus2.api.cognitive.microsoft.com//customvision/v3.3/Training/projects/bba40958-5c75-4737-ad8c-5a7cf9b806b1/images/tagged?skip=0&take=25"
-    JSON_VALUE=$(curl -s $FULL_URL -H "Training-key: $TRAINING_KEY")
-
-    IMG_NUM=0
-    echo "...Downloading Images..."
-    for row in $(echo "${JSON_VALUE}" | jq -r '.[] | @base64'); do
-        echo "...Downloading $IMG_NUM..."
-        _jq() {
-        echo ${row} | base64 --decode | jq -r ${1}
-        }
-
-        curl -s -o $OUTPUT_DIR/$(_jq '.id').jpg $(_jq '.originalImageUri')
-        echo $(_jq '.') > $OUTPUT_DIR/$(_jq '.id').json
-        ((IMG_NUM++))
-    done
-
-}
 function main(){
     echo "CustomVision Tag Exporter"
     echo "----------------------------------------"
